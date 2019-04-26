@@ -3,9 +3,18 @@
   const serverUrl = 'http://127.0.0.1:3000';
 
   //
-  // TODO: build the swim command fetcher here
+  // TODO: build the swim command fetcher here - GET REQUEST
+  const ajaxGetCommand = () => {
+    console.log('testing function')
+    $.ajax({
+      type: 'GET',
+      url: serverUrl,
+      success: (data) => {
+        console.log('testing!!!' , data)
+      }
+    })
+  }
   //
-
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
   // Note: remember to fix the URL below.
@@ -17,7 +26,7 @@
     $.ajax({
       type: 'POST',
       data: formData,
-      url: 'FILL_ME_IN',
+      url: serverUrl,
       cache: false,
       contentType: false,
       processData: false,
@@ -47,3 +56,5 @@
   });
 
 })();
+
+console.log('testing outside file')
