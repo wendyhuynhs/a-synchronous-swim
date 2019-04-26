@@ -1,3 +1,4 @@
+
 (function() {
 
   const serverUrl = 'http://127.0.0.1:3000';
@@ -10,11 +11,13 @@
       type: 'GET',
       url: serverUrl,
       success: (data) => {
-        console.log('testing!!!' , data)
+        console.log('WHY IS THIS ' , data)
+        SwimTeam.move(data);
       }
     })
   }
   //
+  ajaxGetCommand();
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
   // Note: remember to fix the URL below.
