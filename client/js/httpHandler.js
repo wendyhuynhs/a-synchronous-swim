@@ -29,7 +29,8 @@
   const ajaxFileUplaod = (file) => {
     var formData = new FormData();
     formData.append('file', file);
-    // console.log(formData)
+    var newfile = formData.get('file')
+    // console.log('FormData...', file)
     $.ajax({
       type: 'POST',
       data: formData,
@@ -42,8 +43,9 @@
           type: 'GET',
           url: 'http://127.0.0.1:3000/background',
           success: (data) => {
+            console.log(data)
             //change background image once get request is successful
-            $('body').css('background-image', `url(https://previews.123rf.com/images/naumoid/naumoid1005/naumoid100500058/7066588-water-ripples-at-swimming-pool-background.jpg)`); 
+            // $('body').css('background-image', `url(https://previews.123rf.com/images/naumoid/naumoid1005/naumoid100500058/7066588-water-ripples-at-swimming-pool-background.jpg)`); 
             // window.location = window.location.href;
           }
         })
