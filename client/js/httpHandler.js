@@ -38,16 +38,16 @@
       contentType: false,
       processData: false,
       success: (data) => {
-        // $.ajax({
-        //   type: 'GET',
-        //   url: 'http://127.0.0.1:3000/background',
-        //   success: (data) => {
-        //     console.log('WHY IS THIS ' , data)
-        //     SwimTeam.move(data);
-        //   }
-        // })
+        $.ajax({
+          type: 'GET',
+          url: 'http://127.0.0.1:3000/background',
+          success: (data) => {
+            //change background image once get request is successful
+            $('body').css('background-image', `url(https://previews.123rf.com/images/naumoid/naumoid1005/naumoid100500058/7066588-water-ripples-at-swimming-pool-background.jpg)`); 
+            // window.location = window.location.href;
+          }
+        })
         console.log('nicee hi', data)
-        // window.location = window.location.href;
       }
     });
   };

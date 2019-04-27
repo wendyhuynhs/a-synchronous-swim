@@ -5,7 +5,7 @@ const multipart = require('./multipartUtils');
 const messages = require('./messageQueue')
 
 // Path for the background image ///////////////////////
-module.exports.backgroundImageFile = path.join('.', 'background.jpg');
+module.exports.backgroundImageFile = path.join('.', );
 ////////////////////////////////////////////////////////
 
 module.exports.router = (req, res, next = ()=>{}) => {
@@ -15,16 +15,17 @@ module.exports.router = (req, res, next = ()=>{}) => {
    if(req.url === '/background') {
      //send back the image we need
      let result;
-     fs.readFile('test.txt', (err, data) => {
+     fs.readFile('test.txt', 'utf8', (err, data) => {       
        result = data
       console.log(result)
      })
+     res.writeHead(200, headers);
      res.end(); // <--- image path returned here??
    } else {
      res.writeHead(200, headers);
      res.end(messages.dequeue());
    }
- } else if (req.method === 'POST') { // how to keep track of img???
+ } else if (req.method === 'POST') { 
    if (req.url === '/background') {
      console.log(req);
      fs.writeFile('test.txt', 'pool_blue_0.jpg')
